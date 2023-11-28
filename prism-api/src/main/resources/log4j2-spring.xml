@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="off" monitorInterval="86400">
+    <!-- 变量配置 -->
+    <Properties>
+        <property name="LOG_PATTERN_CONSOLE" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %highlight{%-5level}{ERROR=RED, WARN=Yellow, INFO=Green,
+        DEBUG=Cyan, TRACE=White} %style{[%t]}{bright,magenta} %style{%c:%M[%L]}{cyan}: %msg%n"/>
+        <property name="LOG_PATTERN_FILE" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5level[%thread] %c:%M[%L]: %msg%n"/>
+        <property name="FILE_PATH" value="/Users/anliwen/source/prism/logs/api"/>
+        <property name="FILE_NAME" value="prism-im-api"/>
+    </Properties>
+    <appenders>
+        <console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN_CONSOLE}"/>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+        </console>
+        <RollingFile name="RollingFileInfo" fileName="${FILE_PATH}/info.log"
+                     filePattern="${FILE_PATH}/${FILE_NAME}-INFO-%d{yyyy-MM-dd}-%i.log.gz">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN_FILE}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="30MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="180"/>
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <!-- 过滤掉spring和mybatis的一些无用的DEBUG信息 -->
+        <AsyncLogger name="org.mybatis" level="info" additivity="false">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFileInfo"/>
+        </AsyncLogger>
+        <AsyncLogger name="org.springframework" level="info" additivity="false">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFileInfo"/>
+        </AsyncLogger>
+        <root level="info">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFileInfo"/>
+        </root>
+    </loggers>
+</configuration>
