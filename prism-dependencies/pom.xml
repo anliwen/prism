@@ -16,6 +16,7 @@
         <spring-cloud.version>2023.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2023.0.1.2</spring-cloud-alibaba.version>
         <springboot.version>3.3.4</springboot.version>
+        <knife4j.version>4.5.0</knife4j.version>
     </properties>
 
     <dependencyManagement>
@@ -52,6 +53,34 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${springboot.version}</version>
+            </dependency>
+
+            <!--knife4j文档 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- prism-framework-web -->
+            <dependency>
+                <groupId>com.anlw.framework</groupId>
+                <artifactId>prism-framework-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- prism-framework-swagger -->
+            <dependency>
+                <groupId>com.anlw.framework</groupId>
+                <artifactId>prism-framework-swagger</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- prism-service-example -->
+            <dependency>
+                <groupId>com.anlw.framework</groupId>
+                <artifactId>prism-service-example</artifactId>
+                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
