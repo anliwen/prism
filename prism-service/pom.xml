@@ -10,7 +10,6 @@
     </parent>
     <!-- base info -->
     <artifactId>prism-service</artifactId>
-    <version>${revision}</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>业务模块</description>

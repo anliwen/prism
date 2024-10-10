@@ -1,1 +1,9 @@
-spring.application.name=prism-launch
+server:
+  port: 8080
+spring:
+  application:
+    name: @application.name@
+  config:
+    import: classpath:knife.yml
+prism:
+  version: @revision@

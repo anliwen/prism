@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>prism-launch</artifactId>
-    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>启动入口</description>
@@ -20,4 +19,43 @@
             <artifactId>prism-service-example</artifactId>
         </dependency>
     </dependencies>
+    <build>
+        <!-- 设置构建的 jar 包名 -->
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- 打包 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 如果 spring.boot.version 版本修改, 则这里也要跟着修改 -->
+                <version>${springboot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- 将引入的 jar 打入其中 -->
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 资源打包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin}</version>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

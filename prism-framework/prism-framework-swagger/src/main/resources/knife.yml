@@ -1,0 +1,57 @@
+# http://localhost:8080/doc.html
+# http://localhost:8080/v3/api-docs
+# http://localhost:8080/swagger-ui/index.html
+knife4j:
+  enable: true
+  # 在生产环境配置该条目
+  production: false
+  basic:
+    # 启动用户名/密码访问
+    enable: false
+    username: admin
+    password: 123456
+  documents:
+    # 添加自定义md文档
+    - group: default
+      name: 其他文档
+      # 某一个文件夹下所有的.md文件
+      locations: ./docs/*
+  setting:
+    # 显示中文
+    language: ZH_CN
+    enable-home-custom: false
+    home-custom-path: classpath:markdown/home.md
+    enable-footer: true
+    enable-footer-custom: true
+    footer-custom-content: Apache License 2.0 | Copyright  2024-[浅浅出品](https://www.yuque.com/an.king)
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /x/swagger-ui
+    tags-sorter: alpha
+    operations-sorter: alpha
+    show-extensions: true
+  group-configs:
+    - group: 'user'
+      #paths-to-match: '/admin/**'
+      packages-to-scan: com.anlw.service.user.controller
+    - group: 'role'
+      #paths-to-match: '/common/**'
+      packages-to-scan: com.anlw.service.role.controller
+
+prism:
+  swagger:
+    # swagger 配置
+    author: anliwen
+    title: 华创证券-厦门国际信托
+    description: 华创证券-厦门国际信托
+    version: ${spring.application.name}
+    url: https://github.com/dromara/prism-visor
+    email: ljh1553488six@139.com
+    license: Apache-2.0
+    license-url: https://github.com/dromara/prism-visor/blob/main/LICENSE
+
+

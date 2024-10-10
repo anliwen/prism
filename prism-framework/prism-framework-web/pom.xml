@@ -10,7 +10,6 @@
     </parent>
     <!-- base info -->
     <artifactId>prism-framework-web</artifactId>
-    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>基础插件-web相关</description>

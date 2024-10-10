@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "prism.version",
+      "type": "java.lang.String",
+      "description": "系统版本."
+    }
+  ]
+}

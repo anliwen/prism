@@ -10,12 +10,12 @@
     </parent>
     <!-- base info -->
     <artifactId>prism-framework</artifactId>
-    <version>${revision}</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>基础插件</description>
     <modules>
         <module>prism-framework-web</module>
         <module>prism-framework-swagger</module>
+<!--        <module>prism-framework-datasource</module>-->
     </modules>
 </project>

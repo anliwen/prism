@@ -17,6 +17,12 @@
         <spring-cloud-alibaba.version>2023.0.1.2</spring-cloud-alibaba.version>
         <springboot.version>3.3.4</springboot.version>
         <knife4j.version>4.5.0</knife4j.version>
+        <mysql.version>8.0.33</mysql.version>
+        <druid.version>1.2.23</druid.version>
+        <mybatis.version>3.0.3</mybatis.version>
+        <mybatis-plus.version>3.5.8</mybatis-plus.version>
+        <lombok.version>1.18.34</lombok.version>
+        <guava.version>33.3.1-jre</guava.version>
     </properties>
 
     <dependencyManagement>
@@ -53,6 +59,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${springboot.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!--knife4j文档 -->
@@ -60,6 +67,43 @@
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- db -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
 
             <!-- prism-framework-web -->
@@ -76,7 +120,14 @@
                 <version>${revision}</version>
             </dependency>
 
-            <!-- prism-service-example -->
+            <!-- prism-framework-datasource -->
+            <dependency>
+                <groupId>com.anlw.framework</groupId>
+                <artifactId>prism-framework-datasource</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- prism-service-user -->
             <dependency>
                 <groupId>com.anlw.framework</groupId>
                 <artifactId>prism-service-example</artifactId>

@@ -9,7 +9,6 @@
         <version>${revision}</version>
     </parent>
     <artifactId>prism-service-example</artifactId>
-    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>业务模块-example</description>
@@ -21,6 +20,11 @@
         <dependency>
             <groupId>com.anlw.framework</groupId>
             <artifactId>prism-framework-swagger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

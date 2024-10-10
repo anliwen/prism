@@ -23,10 +23,14 @@
 
     <properties>
         <revision>1.0.0.RELEASE</revision>
+        <!-- boot版本要在这里和bom同时维护，一个维护jar，一个适用于maven配套设施 -->
+        <springboot.version>3.3.4</springboot.version>
+        <application.name>prism</application.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <flatten.maven.plugin.version>1.6.0</flatten.maven.plugin.version>
+        <maven-resources-plugin>3.3.1</maven-resources-plugin>
     </properties>
 
     <modules>
